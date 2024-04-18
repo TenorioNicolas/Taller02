@@ -8,7 +8,7 @@ public class Main {
     private static double[][] sismos;
     private static Scanner scanner = new Scanner(System.in);
 
-    private static void pedirDias() {
+    public static void pedirDias() {
         System.out.print("Ingrese la cantidad de días para la simulación (2-31): ");
         int dias = scanner.nextInt();
         while (dias < 2 || dias > 31) {
@@ -16,9 +16,11 @@ public class Main {
             dias = scanner.nextInt();
         }
         sismos = new double[dias][HORAS]; // Inicializa la matriz con la cantidad de días definida por el usuario
+        generarDatosSismicos();
+        mostrarMenu();
     }
 
-    private static void generarDatosSismicos() {
+    public static void generarDatosSismicos() {
         Random random = new Random();
         for (int dia = 0; dia < sismos.length; dia++) {
             for (int hora = 0; hora < HORAS; hora++) {
@@ -27,7 +29,7 @@ public class Main {
         }
     }
 
-    private static void encontrarYMostrarSismoMasIntenso() {
+    public static void encontrarYMostrarSismoMasIntenso() {
         double maxIntensidad = 0;
         int diaDelMaximo = -1;
         int horaDelMaximo = -1;
@@ -44,7 +46,7 @@ public class Main {
                 diaDelMaximo + 1, horaDelMaximo, maxIntensidad);
     }
 
-    private static void contarYMostrarSismosFrecuentes() {
+    public static void contarYMostrarSismosFrecuentes() {
         for (int dia = 0; dia < sismos.length; dia++) {
             int cuenta = 0;
             for (int hora = 0; hora < HORAS; hora++) {
@@ -55,11 +57,42 @@ public class Main {
             System.out.printf("Día %d: se registraron %d sismos con intensidad igual o mayor a 4.0 grados Richter.\n", dia + 1, cuenta);
         }
     }
-    private static void mostrarMenu() {
-    return;
+
+    public static void reiniciarArregloConNuevosValores() {
+        pedirDias();
     }
+
+    public static void mostrarMenu() {
+        int opcion;
+        do {
+            System.out.println("===== Menú =====");
+            System.out.println("[1] Mostrar sismo más intenso");
+            System.out.println("[2] Mostrar sismos ≥ 4.0 grados Richter");
+            System.out.println("[3] Reiniciar el arreglo con nuevos valores");
+            System.out.println("[4] Salir");
+            System.out.print("Seleccione una opción: ");
+            opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    encontrarYMostrarSismoMasIntenso();
+                    break;
+                case 2:
+                    contarYMostrarSismosFrecuentes();
+                    break;
+                case 3:
+                    reiniciarArregloConNuevosValores();
+                    break;
+                case 4:
+                    System.out.println("Saliendo del programa...");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
+            }
+        } while (opcion != 4);
+    }
+
     public static void main(String[] args) {
         pedirDias();
     }
 }
-
