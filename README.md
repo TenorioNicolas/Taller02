@@ -1,4 +1,3 @@
-// Habia una cuenta vinculada en el repositorio local del computador (Prestado en el DCI), Para no perder tiempo no fue solucionado, el usuario GatoMiau03 no es parte de este grupo
 
 Integrantes:
 - Angelo Huaiquil
@@ -14,4 +13,4 @@ Tareas que realizara Angelo Huaiquil:
 Tareas que realizara Nicolas Tenorio:
 - pruebas unitarias
 - metodo menu
-- apoyo en metodos
+
