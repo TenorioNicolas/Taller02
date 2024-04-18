@@ -1,3 +1,4 @@
+
 Integrantes:
 - Angelo Huaiquil
 - Nicolas Tenorio
@@ -12,3 +13,4 @@ Tareas que realizara Angelo Huaiquil:
 Tareas que realizara Nicolas Tenorio:
 - pruebas unitarias
 - metodo menu
+

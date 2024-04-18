@@ -1,4 +1,5 @@
-package org.example;
+import java.util.Random;
+import java.util.Scanner;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -8,7 +9,9 @@ public class Main {
     private static double[][] sismos;
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void pedirDias() {
+
+    private static void pedirDias() {
+
         System.out.print("Ingrese la cantidad de días para la simulación (2-31): ");
         int dias = scanner.nextInt();
         while (dias < 2 || dias > 31) {
@@ -20,7 +23,9 @@ public class Main {
         mostrarMenu();
     }
 
-    public static void generarDatosSismicos() {
+
+    private static void generarDatosSismicos() {
+
         Random random = new Random();
         for (int dia = 0; dia < sismos.length; dia++) {
             for (int hora = 0; hora < HORAS; hora++) {
@@ -29,7 +34,9 @@ public class Main {
         }
     }
 
-    public static void encontrarYMostrarSismoMasIntenso() {
+
+    private static void encontrarYMostrarSismoMasIntenso() {
+
         double maxIntensidad = 0;
         int diaDelMaximo = -1;
         int horaDelMaximo = -1;
@@ -46,7 +53,9 @@ public class Main {
                 diaDelMaximo + 1, horaDelMaximo, maxIntensidad);
     }
 
-    public static void contarYMostrarSismosFrecuentes() {
+
+    private static void contarYMostrarSismosFrecuentes() {
+
         for (int dia = 0; dia < sismos.length; dia++) {
             int cuenta = 0;
             for (int hora = 0; hora < HORAS; hora++) {
@@ -58,11 +67,13 @@ public class Main {
         }
     }
 
-    public static void reiniciarArregloConNuevosValores() {
+
+    private static void reiniciarArregloConNuevosValores() {
         pedirDias();
     }
 
-    public static void mostrarMenu() {
+    private static void mostrarMenu() {
+
         int opcion;
         do {
             System.out.println("===== Menú =====");
